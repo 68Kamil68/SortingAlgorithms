@@ -20,12 +20,12 @@ namespace SortingAlgorithms.Models
 
             for (int i = 0; i < sortedArray.Length; i++)
             {
-                for(int j = 0; j < unsortedArray.Length - 1; j++)
+                for(int j = 0; j < sortedArray.Length - 1; j++)
                 {
-                    if(i < j)
+                    if(sortedArray[j] > sortedArray[j+1])
                     {
-                        int temp = sortedArray[i];
-                        sortedArray[i] = sortedArray[j];
+                        int temp = sortedArray[j + 1];
+                        sortedArray[j + 1] = sortedArray[j];
                         sortedArray[j] = temp;
                     }
                 }

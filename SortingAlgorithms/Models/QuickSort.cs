@@ -8,10 +8,14 @@ namespace SortingAlgorithms.Models
 #nullable enable
     public static class QuickSort
     {
-        public static int[] Sort(int[] unsortedArray)
+        public static int[] Sort(int[]? unsortedArray)
         {
+            if (unsortedArray == null)
+            {
+                throw new ArgumentNullException(nameof(unsortedArray));
+            }
             int[] sortedArray = unsortedArray;
-            Shuffle(new Random(), sortedArray);
+            //Shuffle(new Random(), sortedArray);
             Sort(sortedArray, 0, sortedArray.Length - 1);
             return sortedArray;
         }
@@ -75,9 +79,9 @@ namespace SortingAlgorithms.Models
 
         public static void Swap(int[] array, int index1, int index2)
         {
-            int temp = array[index1];
-            array[index1] = array[index2];
-            array[index2] = temp;
+            int temp = array[index2];
+            array[index2] = array[index1];
+            array[index1] = temp;
         }
 
 
