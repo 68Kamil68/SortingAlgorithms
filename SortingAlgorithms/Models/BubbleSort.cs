@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 namespace SortingAlgorithms.Models
 {
 #nullable enable
-    public class BubbleSort : SortingAlgorithm
+    public static class BubbleSort
     {
-        public override int[] Sort(int[]? unsortedArray)
+        public static int[] Sort(int[]? unsortedArray)
         {
           
             if(unsortedArray == null)
@@ -32,6 +32,5 @@ namespace SortingAlgorithms.Models
             }
             return sortedArray;
         }
-
     }
 }
