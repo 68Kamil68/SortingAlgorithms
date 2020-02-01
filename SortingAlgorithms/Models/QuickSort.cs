@@ -15,7 +15,7 @@ namespace SortingAlgorithms.Models
                 throw new ArgumentNullException(nameof(unsortedArray));
             }
             int[] sortedArray = unsortedArray;
-            //Shuffle(new Random(), sortedArray);
+            Shuffle(new Random(), sortedArray);
             Sort(sortedArray, 0, sortedArray.Length - 1);
             return sortedArray;
         }
@@ -40,9 +40,11 @@ namespace SortingAlgorithms.Models
             int n = array.Length;
             while(n > 1)
             {
-                int k = rng.Next(n--);
-                int temp = array[n];
-                array[k] = temp;
+                n--;
+                int k = rng.Next(n+1);
+                int temp = array[k];
+                array[k] = array[n];
+                array[n] = temp;
             }
         }
 
