@@ -2,6 +2,7 @@
 
 export class Sort extends Component {
     static displayName = Sort.name;
+    static numbers = [];
 
     constructor(props) {
         super(props);
@@ -12,8 +13,14 @@ export class Sort extends Component {
             <div>
                 <h1>Sorting Algorithms</h1>
 
-                <button className="btn btn-primary">Generate unsorted array</button>
+                <button className="btn btn-primary" onClick={this.getUnsortedArray}>Generate unsorted array</button>
             </div>
         );
+    }
+
+    async getUnsortedArray() {
+        const response = await fetch('sort');
+        const data = response.json();
+        this.numbers 
     }
 }
