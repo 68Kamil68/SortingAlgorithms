@@ -22,7 +22,7 @@ namespace SortingAlgorithms.Controllers
         }
 
         [HttpGet]
-        public int[] Get()
+        public IEnumerable<int> Get()
         {
             return Models.GenerateUnsortedArray.GenerateArray(5);
         }

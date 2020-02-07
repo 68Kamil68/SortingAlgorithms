@@ -2,10 +2,10 @@
 
 export class Sort extends Component {
     static displayName = Sort.name;
-    static numbers = [];
 
     constructor(props) {
         super(props);
+        this.data = [];
     }
 
     render() {
@@ -20,7 +20,7 @@ export class Sort extends Component {
 
     async getUnsortedArray() {
         const response = await fetch('sort');
-        const data = response.json();
-        this.numbers 
+        const dataa = response.json();
+        this.data = dataa;
     }
 }
