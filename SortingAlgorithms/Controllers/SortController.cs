@@ -21,10 +21,11 @@ namespace SortingAlgorithms.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<int> Get()
+        [HttpPost]
+        public IEnumerable<int> Get(string size)
         {
-            return Models.GenerateUnsortedArray.GenerateArray(5);
+            System.IO.File.WriteAllText(@"C:\Users\Kamil\Desktop\WriteText.txt", size);
+            return Models.GenerateUnsortedArray.GenerateArray(20);
         }
     }
 }
