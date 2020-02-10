@@ -6,7 +6,7 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 
 import './custom.css'
-import { Sort } from './components/Sort';
+import { FetchSort } from './components/FetchSort';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -17,7 +17,7 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
-        <Route path='/sort' component={Sort} />
+        <Route path='/fetch-sort' component={FetchSort} />
       </Layout>
     );
   }

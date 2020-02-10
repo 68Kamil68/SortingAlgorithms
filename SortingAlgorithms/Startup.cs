@@ -52,6 +52,7 @@ namespace SortingAlgorithms
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseDefaultFiles();
             app.UseSpaStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
