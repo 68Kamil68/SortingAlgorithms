@@ -12,8 +12,6 @@ namespace SortingAlgorithms.Controllers
     [ApiController]
     public class SortController : ControllerBase
     {
-        private static int[] unsortedArray;
-
         private readonly ILogger<SortController> _logger;
 
         public SortController(ILogger<SortController> logger)
