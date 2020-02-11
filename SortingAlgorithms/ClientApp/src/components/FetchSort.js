@@ -7,8 +7,6 @@ export class FetchSort extends Component {
         super(props);
         this.state = { array: [], noArrayReceived: true, sorted: false, sorting: false };
         this.unsortedArray = [];
-        this.size = 10;
-        this.getUnsortedArray = this.getUnsortedArray.bind(this);
     }
     //TODO: DRAGGABLE SIZE
 
@@ -28,7 +26,7 @@ export class FetchSort extends Component {
 
         let sortedNotification = this.state.sorted 
             ? <p><em>sorted</em></p>
-            : <p><em>not sorted</em></p>
+            : <></>
 
         let sortingInfo = this.state.sorting 
             ? <p><em>sorting...</em></p>
@@ -79,7 +77,7 @@ export class FetchSort extends Component {
     static renderArray(array) {
         if (array.length > 20) {
             return (
-                <h4>Loaded array but it's too big to show. Check console</h4>
+                <h4>Generated and loaded the array but it's too big to show. Check the console in order to see it.<br></br> Set a size not higher than 20 in order to see the array.</h4>
             );
         }
         var array1 = array.toString();

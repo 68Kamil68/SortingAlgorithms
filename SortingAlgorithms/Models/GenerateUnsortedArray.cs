@@ -15,7 +15,7 @@ namespace SortingAlgorithms.Models
 
             for (int i = 0; i < size; i++)
             {
-                unsortedArray[i] = rand.Next(0, 10000);
+                unsortedArray[i] = rand.Next(0, 1000);
             }
             return unsortedArray;
         }
