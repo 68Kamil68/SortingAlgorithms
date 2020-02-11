@@ -17,11 +17,14 @@ export class FetchSort extends Component {
             ? <p><em>Set size and generate an array</em></p>
             : FetchSort.renderArray(this.state.array);
         let sortButtons = this.state.noArrayReceived
-            ? <p>.</p>
-            : <><button className="btn btn-primary" onClick={() => this.bubbleSort()}>Use bubble sort</button>
-            <button className="btn btn-primary" onClick={() => this.selectionSort()}>Use selection sort</button>
-            <button className="btn btn-primary" onClick={() => this.mergeSort()}>Use merge sort</button>
-            <button className="btn btn-primary" onClick={() => this.quickSort()}>Use quick sort</button></>;
+            ? <br></br>
+            : <><button className="btn btn-primary" onClick={() => this.Sort('BubbleSort')}>Use bubble sort</button>
+            <div class="divider" />
+            <button className="btn btn-primary" onClick={() => this.Sort('SelectionSort')}>Use selection sort</button>
+            <div class="divider" />
+            <button className="btn btn-primary" onClick={() => this.Sort('MergeSort')}>Use merge sort</button>
+            <div class="divider" />
+            <button className="btn btn-primary" onClick={() => this.Sort('QuickSort')}>Use quick sort</button></>;
 
         let sortedNotification = this.state.sorted 
             ? <p><em>sorted</em></p>
@@ -33,7 +36,8 @@ export class FetchSort extends Component {
         return (
             <div>
                 <h1>Sorting Algorithms</h1>
-                Size of an array: <input type="number" id="num" defaultValue="100"/>
+                Size of an array: <input type="number" id="num" defaultValue="10" />
+                <div class="divider"/>
                 <button className="btn btn-primary" onClick={() => this.getUnsortedArray()}>Generate unsorted array</button>
                 {contents}
                 {sortButtons}
@@ -58,48 +62,10 @@ export class FetchSort extends Component {
         this.unsortedArray = array;
     }
 
-    async quickSort() {
-        this.setState({ array: this.unsortedArray, sorted: false, sorting: true });
-        const response = await fetch('Sort/QuickSort', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.unsortedArray),
-        });
-        const array = await response.json();
-        this.setState({ array: array, sorted: true, sorting: false });
-    }
 
-    async mergeSort() {
+    async Sort(algorithm) {
         this.setState({ array: this.unsortedArray, sorted: false, sorting: true });
-        const response = await fetch('Sort/MergeSort', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.unsortedArray),
-        });
-        const array = await response.json();
-        this.setState({ array: array, sorted: true, sorting: false });
-    }
-
-    async bubbleSort() {
-        this.setState({ array: this.unsortedArray, sorted: false, sorting: true });
-        const response = await fetch('Sort/BubbleSort', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.unsortedArray),
-        });
-        const array = await response.json();
-        this.setState({ array: array, sorted: true, sorting: false });
-    }
-
-    async selectionSort() {
-        this.setState({ array: this.unsortedArray, sorted: false, sorting: true });
-        const response = await fetch('Sort/SelectionSort', {
+        const response = await fetch(`Sort/${algorithm}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -111,7 +77,7 @@ export class FetchSort extends Component {
     }
 
     static renderArray(array) {
-        if (array.length > 25) {
+        if (array.length > 20) {
             return (
                 <h4>Loaded array but it's too big to show. Check console</h4>
             );
