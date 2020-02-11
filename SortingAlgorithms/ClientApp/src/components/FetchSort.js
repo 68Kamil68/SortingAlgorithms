@@ -5,7 +5,7 @@ export class FetchSort extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { array: [], noArrayReceived: true, sorted: false, sorting: true };
+        this.state = { array: [], noArrayReceived: true, sorted: false, sorting: false };
         this.unsortedArray = [];
         this.size = 10;
         this.getUnsortedArray = this.getUnsortedArray.bind(this);
@@ -28,8 +28,8 @@ export class FetchSort extends Component {
             : <p><em>not sorted</em></p>
 
         let sortingInfo = this.state.sorting 
-            ? <br></br>
-            : <p><em>sorting...</em></p>
+            ? <p><em>sorting...</em></p>
+            : <br></br>
         return (
             <div>
                 <h1>Sorting Algorithms</h1>
