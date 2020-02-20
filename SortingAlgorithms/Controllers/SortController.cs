@@ -22,7 +22,6 @@ namespace SortingAlgorithms.Controllers
         [HttpPost][Route("Generate")]
         public IEnumerable<int> Get([FromBody]string size)
         {
-            System.IO.File.WriteAllText(@"C:\Users\Kamil\Desktop\WriteText.txt", size);
             return Models.GenerateUnsortedArray.GenerateArray(Int32.Parse(size));
         }
 
@@ -30,8 +29,6 @@ namespace SortingAlgorithms.Controllers
         [Route("QuickSort")]
         public IEnumerable<int> QuickSort([FromBody]int[] array)
         {
-            System.IO.File.WriteAllText(@"C:\Users\Kamil\Desktop\WriteText.txt", array.ToString());
-
             return Models.QuickSort.Sort(array);
         }
 
